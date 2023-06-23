@@ -23,6 +23,9 @@ dateFormat := "yyyy-MM-dd HH''''mm''''ss"
 ; for single screenshot
 askForName := false
 
+; Capture mouse cursor
+captureMouse := true
+
 
 ; -----------------------------------------------------------------
 ; Initialization
@@ -47,7 +50,9 @@ FileCreateDir, % imgBaseDir
 ; Select region on screen or press <Escape> to cancel.
 ; -----------------------------------------------------------------
 #Space::
+SetMouseCursor("Arrow")
 TakeAndShowScreenshotOverlay()
+SetMouseCursor("")
 PrepareSelectRegion()
 isTriggerShot := false
 isSequenceShot := false
@@ -196,7 +201,8 @@ PrepareSelectRegion()
 
 TakeAndShowScreenshotOverlay()
 {
-	CaptureScreen(0, True, "_screen.bmp")
+	global captureMouse
+	CaptureScreen(0, captureMouse, "_screen.bmp")
 	SysGet, VirtualScreenWidth, 78
 	SysGet, VirtualScreenHeight, 79
 	Gui, PicGui:new
