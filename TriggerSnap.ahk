@@ -12,24 +12,36 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; Configuration
 ; -----------------------------------------------------------------
 
-; base directoy for saved snapshots. Can be an absolute or relative path.
+; Base directoy for saved snapshots. Can be an absolute path,
+; otherwise it is relative to the script file.
 imgBaseDir := "snap"
 
-; date format to be used for default file name
-; (actual name may append milliseconds in sequence mode)
+; Date format used in the name of saved files.
 dateFormat := "yyyy-MM-dd HH''''mm''''ss"
 
-; set to true if a popup asking for the filename shall appear
-; for single screenshot
+; Ask for a filename for every single screenshot.
 askForName := false
 
-; Capture mouse cursor
+; Capture mouse cursor on single screenshots.
 captureMouse := true
+
+; Run as administrator (required so that shortcuts work with
+; priviledged app in the foreground).
+runAsAdmin := true
 
 
 ; -----------------------------------------------------------------
 ; Initialization
 ; -----------------------------------------------------------------
+
+if (runAsAdmin)
+{
+    if (not A_IsAdmin)
+    {
+        Run *RunAs "%A_ScriptFullPath%"
+        ExitApp
+    }
+}
 
 CoordMode, Mouse, Screen
  

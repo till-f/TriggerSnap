@@ -33,5 +33,12 @@ plaint text (e.g. remove text formatting, hyperlinks, margins, ...)
 Configuraiton
 -------------
 
-Edit TriggerSnap.ahk to customize shortcuts or snapshot directory.
-For details, see see https://www.autohotkey.com/docs/Tutorial.htm.
+Edit TriggerSnap.ahk to change the shortcuts and the following settings:
+
+ * imgBaseDir: Base directoy for saved snapshots. Can be an absolute path, otherwise it is relative to the script file. Default value: `snap`
+ * dateFormat: Date format used in the name of saved files. Default value: `yyyy-MM-dd HH''''mm''''ss`
+ * askForName: Ask for a filename for every single screenshot. Default value: `false`
+ * captureMouse: Capture mouse cursor on single screenshots. Default value: `true`
+ * runAsAdmin: Run as administrator (required so that shortcuts work with priviledged app in the foreground). Default value: `true`
+
+For more details, see see https://www.autohotkey.com/docs/Tutorial.htm.
