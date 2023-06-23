@@ -40,7 +40,7 @@ Edit TriggerSnap.ahk to change the shortcuts and the following settings:
    * Default value: `snap`
  * dateFormat
    * Date format used in the name of saved files.
-   * Default value: `yyyy-MM-dd HH''''mm''''ss`
+   * Default value: `yyyy-MM-dd HH''''mm''''ss` (example: 2020-12-31 23'59'59)
  * askForName
    * Ask for a filename for every single screenshot.
    * Default value: `false`
