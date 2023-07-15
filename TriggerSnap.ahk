@@ -121,8 +121,32 @@ clipboard := clipboardFull
 return
 
 
+; Press Win+1 to enable/disable Auto-Click every 5 seconds
 ; -----------------------------------------------------------------
-; Entry Points
+#1::
+If (toggle := !toggle)
+	SetTimer, startAutoClick, -1
+return
+
+
+; -----------------------------------------------------------------
+; Auto-Click Entry Points
+; -----------------------------------------------------------------
+
+startAutoClick:
+delta := 10
+while toggle
+{
+	MouseMove, % (1250+delta), 590, 0
+	Click
+	Sleep, 2000
+        delta := delta * -1
+}
+return
+ 
+
+; -----------------------------------------------------------------
+; Screenshot Entry Points
 ; -----------------------------------------------------------------
 
 selectRegion:
