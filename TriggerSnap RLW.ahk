@@ -29,8 +29,6 @@ captureMouse := true
 ; priviledged app in the foreground).
 runAsAdmin := true
 
-; Path to another app to start (hack, just to avoid second UAC window)
-startApp := "C:\Data\git\_Other\FreedomTaskbar\FreedomTaskbar\bin\Debug\net8.0-windows\FreedomTaskbar.exe"
 
 ; -----------------------------------------------------------------
 ; Initialization
@@ -55,13 +53,35 @@ IfExist, TriggerSnap.ico
 
 FileCreateDir, % imgBaseDir
 
-IfExist, % startApp
-  Run "%startApp%"
-
 
 ; -----------------------------------------------------------------
 ; Hotkeys
 ; -----------------------------------------------------------------
+
+
+; --------------------------------------------------------------------------
+; Press "Windows + 1" to paste "eng1"
+; --------------------------------------------------------------------------
+#1::
+clipboardString = %clipboard%
+clipboardFull := ClipboardAll
+clipboard := "eng1"
+Send, ^v
+Sleep 200
+clipboard := clipboardFull
+return
+
+; --------------------------------------------------------------------------
+; Press "Windows + 2" to paste "V@rian01"
+; --------------------------------------------------------------------------
+#2::
+clipboardString = %clipboard%
+clipboardFull := ClipboardAll
+clipboard := "V@rian01"
+Send, ^v
+Sleep 200
+clipboard := clipboardFull
+return
 
 ; Press <Windows> + <Space> to take a single screenshot.
 ; Select region on screen or press <Escape> to cancel.
